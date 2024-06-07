@@ -11,3 +11,7 @@ src/*.js
 *.ngsummary.json
 
 .angular
+.vs
+bin
+obj
+package-lock.json

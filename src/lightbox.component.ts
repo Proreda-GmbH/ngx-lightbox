@@ -53,6 +53,9 @@ import {
           <div class="lb-closeContainer">
             <a class="lb-close" (click)="close($event)"></a>
           </div>
+          <div class="lb-shareContainer" [hidden]="!ui.showShareButton">
+            <a class="lb-share" (click)="share($event)"></a>
+          </div>
           <div class="lb-downloadContainer" [hidden]="!ui.showDownloadButton">
             <a class="lb-download" (click)="download($event)"></a>
           </div>
@@ -101,6 +104,7 @@ export class LightboxComponent implements OnInit, AfterViewInit, OnDestroy, OnIn
     private _lightboxWindowRef: LightboxWindowRef,
     private _fileSaverService: FileSaverService,
     private _sanitizer: DomSanitizer,
+
     @Inject(DOCUMENT) private _documentRef
   ) {
     // initialize data
@@ -131,6 +135,9 @@ export class LightboxComponent implements OnInit, AfterViewInit, OnDestroy, OnIn
       // page number or not
       showPageNumber: false,
       showCaption: false,
+
+      // control whether to show the share button or not
+      showShareButton: false,
 
       // control whether to show the download button or not
       showDownloadButton: false,
@@ -198,12 +205,11 @@ export class LightboxComponent implements OnInit, AfterViewInit, OnDestroy, OnIn
     $event.stopPropagation();
     const url = this.album[this.currentImageIndex].src;
     const downloadUrl = this.album[this.currentImageIndex].downloadUrl;
-    const parts = url.split('/');
-    const fileName = parts[parts.length - 1];
+    const fileName = this.album[this.currentImageIndex].filename;
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     const preloader = new Image();
-    const _this = this
+    const _this = this;
 
     preloader.onload = function () {
       // @ts-ignore
@@ -213,15 +219,19 @@ export class LightboxComponent implements OnInit, AfterViewInit, OnDestroy, OnIn
 
       // @ts-ignore
       ctx.drawImage(this, 0, 0);
-      canvas.toBlob(function (blob) {
-        _this._fileSaverService.save(blob, fileName)
-      }, 'image/jpeg', 0.75);
+      canvas.toBlob(blob => {
+        _this._fileSaverService.save(blob, fileName);
+      });
     };
     preloader.crossOrigin = '';
-    if(downloadUrl && downloadUrl.length > 0)
+    if (downloadUrl && downloadUrl.length > 0)
       preloader.src = this._sanitizer.sanitize(SecurityContext.URL, downloadUrl);
     else
       preloader.src = this._sanitizer.sanitize(SecurityContext.URL, url);
+  }
+
+  public share($event: any): void {
+    this._lightboxEvent.broadcastLightboxEvent({ id: LIGHTBOX_EVENT.SHARE, data: null });
   }
 
   public control($event: any): void {
@@ -300,9 +310,9 @@ export class LightboxComponent implements OnInit, AfterViewInit, OnDestroy, OnIn
       this._documentRef.getElementById('image').style.transformOrigin = (height / 2) + 'px ' + (height / 2) + 'px';
     } else if (temp === 180) {
       this._documentRef.getElementById('image').style.transformOrigin = (width / 2) + 'px ' + (height / 2) + 'px';
- } else if (temp === 270) {
+    } else if (temp === 270) {
       this._documentRef.getElementById('image').style.transformOrigin = (width / 2) + 'px ' + (width / 2) + 'px';
- }
+    }
   }
 
   public nextImage(): void {
@@ -494,6 +504,7 @@ export class LightboxComponent implements OnInit, AfterViewInit, OnDestroy, OnIn
       this.ui.showZoomButton = this.options.showZoom;
       this.ui.showRotateButton = this.options.showRotate;
       this.ui.showDownloadButton = this.options.showDownloadButton;
+      this.ui.showShareButton = this.options.showShareButton;
     }, 0);
   }
 
