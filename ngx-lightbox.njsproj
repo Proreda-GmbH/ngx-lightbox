@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ef8e1237-da53-4c83-9d7e-85110739db81}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectView>ProjectFiles</ProjectView>
+    <StartupFile>index.d.ts</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <EnableTypeScript>true</EnableTypeScript>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">17.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="index.html" />
+    <Content Include="lightbox.css" />
+    <Content Include="angular.json" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <Content Include="tsconfig-demo.json" />
+    <None Include="tsconfig.json" />
+    <Content Include="tslint.json" />
+    <Content Include="README.md" />
+    <None Include="index.d.ts" />
+    <None Include="lightbox-config.service.d.ts" />
+    <None Include="lightbox-event.service.d.ts" />
+    <None Include="lightbox-overlay.component.d.ts" />
+    <None Include="lightbox-overlay.component.spec.d.ts" />
+    <None Include="lightbox.component.d.ts" />
+    <None Include="lightbox.component.spec.d.ts" />
+    <None Include="lightbox.module.d.ts" />
+    <None Include="lightbox.service.d.ts" />
+    <Content Include="demo\app.css" />
+    <None Include="demo\app.component.ts" />
+    <None Include="demo\app.module.ts" />
+    <None Include="demo\main.ts" />
+    <None Include="demo\polyfills.ts" />
+    <Content Include="dist\3rdpartylicenses.txt" />
+    <Content Include="dist\index.html" />
+    <Content Include="dist\styles.css" />
+    <Content Include="src\lightbox.css" />
+    <None Include="src\index.d.ts" />
+    <None Include="src\index.ts" />
+    <None Include="src\lightbox-config.service.d.ts" />
+    <None Include="src\lightbox-config.service.ts" />
+    <None Include="src\lightbox-event.service.d.ts" />
+    <None Include="src\lightbox-event.service.ts" />
+    <None Include="src\lightbox-overlay.component.d.ts" />
+    <None Include="src\lightbox-overlay.component.spec.d.ts" />
+    <None Include="src\lightbox-overlay.component.spec.ts" />
+    <None Include="src\lightbox-overlay.component.ts" />
+    <None Include="src\lightbox.component.d.ts" />
+    <None Include="src\lightbox.component.spec.d.ts" />
+    <None Include="src\lightbox.component.spec.ts" />
+    <None Include="src\lightbox.component.ts" />
+    <None Include="src\lightbox.module.d.ts" />
+    <None Include="src\lightbox.module.ts" />
+    <None Include="src\lightbox.service.d.ts" />
+    <None Include="src\lightbox.service.ts" />
+    <Content Include="demo\img\image1-thumb.jpg" />
+    <Content Include="demo\img\image1.jpg" />
+    <Content Include="demo\img\image2-thumb.jpg" />
+    <Content Include="demo\img\image2.jpg" />
+    <Content Include="demo\img\image3-thumb.jpg" />
+    <Content Include="demo\img\image3.jpg" />
+    <Content Include="demo\img\image4-thumb.jpg" />
+    <Content Include="demo\img\image4.jpg" />
+    <Content Include="dist\demo\img\image1-thumb.jpg" />
+    <Content Include="dist\demo\img\image1.jpg" />
+    <Content Include="dist\demo\img\image2-thumb.jpg" />
+    <Content Include="dist\demo\img\image2.jpg" />
+    <Content Include="dist\demo\img\image3-thumb.jpg" />
+    <Content Include="dist\demo\img\image3.jpg" />
+    <Content Include="dist\demo\img\image4-thumb.jpg" />
+    <Content Include="dist\demo\img\image4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="demo" />
+    <Folder Include="demo\img" />
+    <Folder Include="dist" />
+    <Folder Include="dist\demo" />
+    <Folder Include="dist\demo\img" />
+    <Folder Include="src" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
